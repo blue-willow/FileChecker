@@ -1,4 +1,3 @@
-#
 # Clarification:
 # 1. Currently support c, c++, java, python files with extension "c", "cc", "cpp", "h", "java", or "py"
 #
@@ -15,10 +14,6 @@ import os
 import JavaStyleChecker
 import PythonStyleChecker
 from util import ReadFile
-
-def Print(lines):
-    for i in range(0, len(lines)):
-        print("{}:  ".format(i)+lines[i])
 
 def CheckInFile(file_name, Checker):
     lines = ReadFile(file_name)
@@ -38,7 +33,7 @@ if __name__ == "__main__":
     java_style_extensions = ["c", "cc", "cpp", "h", "java"]
     python_style_extensions = ["py"]
     file_name = sys.argv[1]
-    file_extension = file_name.split(".")[-1]    
+    file_extension = file_name.split(".")[-1]
     if not os.path.exists(file_name):
         print("Err: Invalid file path. File " + file_name + " does not exit")
     elif file_extension in java_style_extensions:

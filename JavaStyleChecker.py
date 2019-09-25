@@ -1,5 +1,6 @@
 from util import ReadFile, FindNextString, FindNextComment
 
+# Return the list of all lines containing comments
 def GetCommentLines(lines):
     comment_lines = []
     is_in_block_comment = False
@@ -70,6 +71,7 @@ def GetCommentLines(lines):
                         begin_index = string_start+1             
     return comment_lines
 
+# Return the list of all lines containing single-line comments
 def GetSingleLineComments(lines):
     single_line_comments = []
     is_in_block_comment = False
@@ -131,6 +133,7 @@ def GetSingleLineComments(lines):
                         begin_index = string_start+1             
     return single_line_comments
 
+# Return the list of all lines containing block comments
 def GetBlockCommentLines(lines):
     block_comment_lines = []
     is_in_block_comment = False
@@ -201,6 +204,7 @@ def GetBlockCommentLines(lines):
                         begin_index = string_start+1             
     return block_comment_lines
 
+# Return the number of block comments
 def CountBlockComments(lines):
     block_comment_lines = []
     is_in_block_comment = False
@@ -270,6 +274,7 @@ def CountBlockComments(lines):
                         begin_index = string_start+1             
     return count
 
+# Return the number of TODOs in comments
 def CountTODOs(lines):
     count = 0
     is_in_block_comment = False

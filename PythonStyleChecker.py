@@ -1,5 +1,6 @@
 from util import ReadFile, FindNextString, FindFirstNonSpaceChar
 
+# Return a list of all lines containing comments
 def GetCommentLines(lines):
     comment_lines = []
     is_in_string_double = False
@@ -45,13 +46,15 @@ def GetCommentLines(lines):
                         begin_index = string_start+1             
     return comment_lines
 
+# Return the list of all lines containing single-line comments
 def GetSingleLineComments(lines):
     single_line_comments = GetCommentLines(lines)
     block_comment_lines = GetBlockCommentLines(lines)
     for line in block_comment_lines:
         single_line_comments.remove(line)
     return single_line_comments
-            
+
+# Return the list of all lines containing block comments
 def GetBlockCommentLines(lines):
     block_comment_lines = []
     block_line_count = 0
@@ -112,7 +115,8 @@ def GetBlockCommentLines(lines):
                             is_in_string_single = True
                         begin_index = string_start+1              
     return block_comment_lines
-            
+
+# Return the number of block comments
 def CountBlockComments(lines):
     block_count = 0
     block_line_count = 0
@@ -172,6 +176,7 @@ def CountBlockComments(lines):
                         begin_index = string_start+1              
     return block_count
 
+# Return the number of TODOs in comments
 def CountTODOs(lines):
     count = 0
     is_in_string_double = False
